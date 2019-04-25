@@ -21,14 +21,18 @@ export default class Game {
       this.paddleWidth,
       this.paddleHeight,
       this.boardGap,
-      ((this.height - this.paddleHeight) / 2)
+      ((this.height - this.paddleHeight) / 2),
+              KEYS.a,
+              KEYS.z
     );
     this.player2 = new Paddle(
       this.height,
       this.paddleWidth,
       this.paddleHeight,
       (this.width - this.boardGap - this.paddleWidth),
-      ((this.height - this.paddleHeight) / 2)
+      ((this.height - this.paddleHeight) / 2),
+             KEYS.up,
+             KEYS.down
     );
     console.log(this.player1);
     console.log(this.player2);
