@@ -9,6 +9,7 @@ export default class Ball {
       this.reset();
     } // end of constructor
 
+
     reset(){
         this.x = this.boardWidth / 2;
         this.y = this.boardHeight / 2;
@@ -34,8 +35,35 @@ export default class Ball {
               this.vy = -this.vy;//how to flip the y vector 
 
         }
-    }
+    } // end of wallcollision
+    
+    paddleCollision(player1, player2) {
+        if (this.vx > 0) {
+          // ball is moving the right  and only check for player 1
+          let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
+          let [leftX, rightX, topY, bottomY] = paddle;
+          if( 
+              (this.x + this.radius >= leftX) &&
+              (this.x + this.radius <= rightX) &&
+              (this.y >= topY && this.y <= bottomY)
 
+          ){
+             this.vx = -this.vx;
+          }
+        } else {
+            let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
+            let [leftX, rightX, topY, bottomY] = paddle;
+            if( 
+                (this.x - this.radius <= rightX)&&
+                (this.x -this.radius >= leftX)&&
+                (this.y >= topY && this.y <= bottomY)
+                
+            ){
+        
+        this.vx =-this.vx;
+            }
+      } // end of paddlecollision
+    }
      render(svg, player1, player2){
         
         // update x position with vector direction 60 times a second  
@@ -43,7 +71,7 @@ export default class Ball {
          this.y += this.vy;
 
          this.wallCollision();
-
+         this.paddleCollision(player1,player2);
 
 
          let circle = document.createElementNS(SVG_NS, 'circle');

@@ -36,9 +36,29 @@ export default class Game {
              KEYS.down
     );
     this.ball = new Ball(14, this.width, this.height);
+
+    document.addEventListener('keydown', (event) => {
+      console.log(event);
+      switch(event.key){
+        case KEYS.spaceBar:
+          this.pause = !this.pause;
+        break;
+      }
+      console.log(this.pause);
+    });
+      
+    
+
+    
   }//end of constructor 
 
   render() {
+
+    if (this.pause){
+      return;
+      //this line will not run 
+    }
+    
     // be sure to empty out the last frame before re-rendering
     this.gameElement.innerHTML = "";
 
