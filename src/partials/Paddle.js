@@ -7,10 +7,13 @@ export default class Paddle {
       this.height = height;
       this.x = x;
       this.y = y;
-      this.speed = 10;
+      this.speed = 15;
       this.score = 0;
+      this.pauseDial = 1;
+      
 
       document.addEventListener("keydown", event => {
+        if (this.pauseDial !== 0){
         switch (event.key) {
             case up:
               this.up();
@@ -19,6 +22,7 @@ export default class Paddle {
               this.down();
               break;
           }
+        } // pause indicator
       });
     } //end of constructor 
     //...

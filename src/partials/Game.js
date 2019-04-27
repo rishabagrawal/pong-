@@ -59,9 +59,14 @@ export default class Game {
   render() {
 
     if (this.pause){
+      this.player1.pauseDial = 0;
+      this.player2.pauseDial = 0;
       return;
+     
       //this line will not run 
     }
+    this.player1.pauseDial =1;
+    this.player2.pauseDial =1;
     
     // be sure to empty out the last frame before re-rendering
     this.gameElement.innerHTML = "";
