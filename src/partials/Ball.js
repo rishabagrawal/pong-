@@ -70,6 +70,10 @@ export default class Ball {
     // add Goal method
     goal(player){
         player.score++;
+        if (player.score >= 5){
+            alert("your the winner");
+            location.reload();
+        }
         this.reset();
         console.log(player.score);
     }
