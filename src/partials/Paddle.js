@@ -22,7 +22,7 @@ export default class Paddle {
               this.down();
               break;
           }
-        } // pause indicator
+        } // while at pause the paddle does not move when pressing up and down arrow 
       });
     } //end of constructor 
     //...
