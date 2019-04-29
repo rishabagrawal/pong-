@@ -31,6 +31,7 @@ A basic pong game using SVGs.
 * I Terminal 2
 * Javascript
 * Visual Code
+* SVG
 
 ## Personal Learning
 * Debugging and understanding the error occuring while coding 
